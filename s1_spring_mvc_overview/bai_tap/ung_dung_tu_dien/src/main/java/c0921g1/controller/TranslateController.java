@@ -14,13 +14,18 @@ public class TranslateController {
     IDictionaryService dictionaryService;
 
     @GetMapping("/dictionary")
-    public String goToHomePage(){
+    public String goToHomePage() {
         return "index";
     }
 
     @GetMapping("/translated")
-    public ModelAndView translate(@RequestParam String keyword){
-        String vietnamese = dictionaryService.translate(keyword);
-        return new ModelAndView("index","result",vietnamese);
+    public ModelAndView translate(@RequestParam String keyword) {
+        String result = null;
+        if (keyword == "") {
+            result = "Not Found!";
+        } else {
+            result = dictionaryService.translate(keyword);
+        }
+        return new ModelAndView("index", "result", result);
     }
 }

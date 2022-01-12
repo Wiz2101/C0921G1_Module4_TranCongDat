@@ -20,8 +20,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d49ccf5-819d-4c58-879b-9c08667c466b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/from_and_data_binding/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/from_and_data_binding/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/from_and_data_binding/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/from_and_data_binding/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/from_and_data_binding/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/from_and_data_binding/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/from_and_data_binding/src/main/java/c0921g1/controller/EmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/from_and_data_binding/src/main/java/c0921g1/model/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/from_and_data_binding/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/from_and_data_binding/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/from_and_data_binding/src/main/webapp/WEB-INF/views/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/from_and_data_binding/src/main/webapp/WEB-INF/views/info.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/from_and_data_binding/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/ung_dung_login/src/main/java/c0921g1/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/ung_dung_login/src/main/java/c0921g1/model/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/ung_dung_login/src/main/java/c0921g1/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/ung_dung_login/src/main/java/c0921g1/repository/IUserRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/ung_dung_login/src/main/java/c0921g1/repository/UserRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/ung_dung_login/src/main/java/c0921g1/service/IUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/ung_dung_login/src/main/java/c0921g1/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/ung_dung_login/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/ung_dung_login/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/ung_dung_login/src/main/webapp/WEB-INF/views/error.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/ung_dung_login/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/ung_dung_login/src/main/webapp/WEB-INF/views/user.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../s4_data_binding_and_form/thuc_hanh/ung_dung_login/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/c0921g1/controller/ConvertController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/c0921g1/controller/ConvertController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../s2_spring_controller/thuc_hanh/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../../s2_spring_controller/thuc_hanh/customer-management" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,6 +182,7 @@
       <updated>1641886734773</updated>
       <workItem from="1641886741125" duration="4335000" />
       <workItem from="1641891938086" duration="919000" />
+      <workItem from="1641980195573" duration="84000" />
     </task>
     <servers />
   </component>
@@ -182,54 +210,54 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1641892526591" />
-    <state width="1024" height="210" key="GridCell.Tab.0.bottom" timestamp="1641891283857">
+    <state width="1024" height="217" key="GridCell.Tab.0.bottom" timestamp="1641980279855">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1641891283857" />
-    <state width="1024" height="210" key="GridCell.Tab.0.center" timestamp="1641891283857">
+    <state width="1024" height="217" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1641980279855" />
+    <state width="1024" height="217" key="GridCell.Tab.0.center" timestamp="1641980279854">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1641891283857" />
-    <state width="1024" height="210" key="GridCell.Tab.0.left" timestamp="1641891283857">
+    <state width="1024" height="217" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1641980279854" />
+    <state width="1024" height="217" key="GridCell.Tab.0.left" timestamp="1641980279854">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1641891283857" />
-    <state width="1024" height="210" key="GridCell.Tab.0.right" timestamp="1641891283857">
+    <state width="1024" height="217" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1641980279854" />
+    <state width="1024" height="217" key="GridCell.Tab.0.right" timestamp="1641980279854">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1641891283857" />
-    <state width="1024" height="210" key="GridCell.Tab.1.bottom" timestamp="1641891283857">
+    <state width="1024" height="217" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1641980279854" />
+    <state width="1024" height="217" key="GridCell.Tab.1.bottom" timestamp="1641980279855">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="210" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1641891283857" />
-    <state width="1024" height="210" key="GridCell.Tab.1.center" timestamp="1641891283857">
+    <state width="1024" height="217" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1641980279855" />
+    <state width="1024" height="217" key="GridCell.Tab.1.center" timestamp="1641980279855">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="210" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1641891283857" />
-    <state width="1024" height="210" key="GridCell.Tab.1.left" timestamp="1641891283857">
+    <state width="1024" height="217" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1641980279855" />
+    <state width="1024" height="217" key="GridCell.Tab.1.left" timestamp="1641980279855">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="210" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1641891283857" />
-    <state width="1024" height="210" key="GridCell.Tab.1.right" timestamp="1641891283857">
+    <state width="1024" height="217" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1641980279855" />
+    <state width="1024" height="217" key="GridCell.Tab.1.right" timestamp="1641980279855">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="210" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1641891283857" />
-    <state width="1024" height="210" key="GridCell.Tab.2.bottom" timestamp="1641891283857">
+    <state width="1024" height="217" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1641980279855" />
+    <state width="1024" height="217" key="GridCell.Tab.2.bottom" timestamp="1641980279855">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="210" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1641891283857" />
-    <state width="1024" height="210" key="GridCell.Tab.2.center" timestamp="1641891283857">
+    <state width="1024" height="217" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1641980279855" />
+    <state width="1024" height="217" key="GridCell.Tab.2.center" timestamp="1641980279855">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="210" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1641891283857" />
-    <state width="1024" height="210" key="GridCell.Tab.2.left" timestamp="1641891283857">
+    <state width="1024" height="217" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1641980279855" />
+    <state width="1024" height="217" key="GridCell.Tab.2.left" timestamp="1641980279855">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="210" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1641891283857" />
-    <state width="1024" height="210" key="GridCell.Tab.2.right" timestamp="1641891283857">
+    <state width="1024" height="217" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1641980279855" />
+    <state width="1024" height="217" key="GridCell.Tab.2.right" timestamp="1641980279855">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="210" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1641891283857" />
+    <state width="1024" height="217" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1641980279855" />
     <state width="1024" height="210" key="GridCell.Tab.3.bottom" timestamp="1641890012361">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -256,7 +284,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/c0921g1/controller/ConvertController.java</url>
-          <line>18</line>
+          <line>19</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

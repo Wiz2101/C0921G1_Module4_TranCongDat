@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Customer Management</h1>
-<form action="/converted">
+<form action="/converted" method="post">
     <label>USD</label>
     <input type="text" name="usd" placeholder="Enter Amount of USD">
     <label>Rate</label>
