@@ -22,7 +22,7 @@ public class TranslateController {
     public ModelAndView translate(@RequestParam String keyword) {
         String result = null;
         if (keyword == "") {
-            result = "Not Found!";
+            result = "Please enter the keyword";
         } else {
             result = dictionaryService.translate(keyword);
         }

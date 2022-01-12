@@ -7,15 +7,22 @@ import java.util.Map;
 
 @Repository
 public class DictionaryRepository implements IDictionaryRepository {
-    Map<String,String> dictionaryList = new HashMap<>();
+    Map<String, String> dictionaryList = new HashMap<>();
+
     {
-        dictionaryList.put("hello","Xin Chao");
-        dictionaryList.put("dog","Con Cho");
-        dictionaryList.put("cat","Con Meo");
-        dictionaryList.put("house","Ngoi Nha");
+        dictionaryList.put("hello", "Xin Chao");
+        dictionaryList.put("dog", "Con Cho");
+        dictionaryList.put("cat", "Con Meo");
+        dictionaryList.put("house", "Ngoi Nha");
     }
+
     @Override
     public String translate(String keyword) {
-        return dictionaryList.get(keyword.toLowerCase());
+        for (Map.Entry<String, String> entry : dictionaryList.entrySet()) {
+            if (keyword.equals(entry.getKey())) {
+                return entry.getValue();
+            }
+        }
+        return "Not Found!";
     }
 }
