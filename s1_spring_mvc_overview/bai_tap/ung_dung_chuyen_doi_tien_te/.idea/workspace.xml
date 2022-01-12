@@ -20,57 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d49ccf5-819d-4c58-879b-9c08667c466b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/c0921g1/controller/ConvertController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ung_dung_tu_dien/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ung_dung_tu_dien/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ung_dung_tu_dien/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ung_dung_tu_dien/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ung_dung_tu_dien/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ung_dung_tu_dien/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ung_dung_tu_dien/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ung_dung_tu_dien/src/main/java/c0921g1/controller/TranslateController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ung_dung_tu_dien/src/main/java/c0921g1/repository/DictionaryRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ung_dung_tu_dien/src/main/java/c0921g1/repository/IDictionaryRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ung_dung_tu_dien/src/main/java/c0921g1/service/DictionaryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ung_dung_tu_dien/src/main/java/c0921g1/service/IDictionaryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ung_dung_tu_dien/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ung_dung_tu_dien/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ung_dung_tu_dien/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ung_dung_tu_dien/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/quan_ly_danh_sach_khach_hang/src/main/java/c0921g1/controller/CustomerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/quan_ly_danh_sach_khach_hang/src/main/java/c0921g1/model/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/quan_ly_danh_sach_khach_hang/src/main/java/c0921g1/repository/CustomerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/quan_ly_danh_sach_khach_hang/src/main/java/c0921g1/repository/ICustomerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/quan_ly_danh_sach_khach_hang/src/main/java/c0921g1/service/CustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/quan_ly_danh_sach_khach_hang/src/main/java/c0921g1/service/ICustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/quan_ly_danh_sach_khach_hang/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/quan_ly_danh_sach_khach_hang/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/quan_ly_danh_sach_khach_hang/src/main/webapp/WEB-INF/views/edit.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/quan_ly_danh_sach_khach_hang/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/quan_ly_danh_sach_khach_hang/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/.gradle/6.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/.gradle/6.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/.gradle/6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/.gradle/6.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/.gradle/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/tao_ung_dung_spring_greeting/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,6 +154,7 @@
       <option name="presentableId" value="Default" />
       <updated>1641886734773</updated>
       <workItem from="1641886741125" duration="4335000" />
+      <workItem from="1641891938086" duration="919000" />
     </task>
     <servers />
   </component>
@@ -219,16 +171,17 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1641887825089">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1641887825089" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1641890239508">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1641892526591">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1641890239508" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1641892526591" />
     <state width="1024" height="210" key="GridCell.Tab.0.bottom" timestamp="1641891283857">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -293,10 +246,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1024" height="210" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1641890012361" />
-    <state x="209" y="23" key="new project wizard" timestamp="1641890240901">
+    <state x="209" y="23" key="new project wizard" timestamp="1641892549531">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="209" y="23" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1641890240901" />
+    <state x="209" y="23" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1641892549531" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
