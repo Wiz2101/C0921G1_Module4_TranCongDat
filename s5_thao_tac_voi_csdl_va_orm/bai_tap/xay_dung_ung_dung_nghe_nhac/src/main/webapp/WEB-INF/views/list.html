@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <a href="/song/create">Add New Song</a>
+    <p style="color: seagreen" th:text="${msgSC}"></p>
+    <p style="color: darkblue" th:text="${msgEdit}"></p>
+    <p style="color: indianred" th:text="${msgDel}"></p>
+    <p th:if="${songList.isEmpty()}">Empty List</p>
+<table border="1" th:unless="${songList.isEmpty()}">
+    <caption>Song List</caption>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Singer</th>
+        <th>Type</th>
+        <th>Link</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <tr th:each="songList : ${songList}">
+        <td th:text="${songList.getId()}"></td>
+        <td th:text="${songList.getSongName()}"></td>
+        <td th:text="${songList.getSinger()}"></td>
+        <td th:text="${songList.getSongType()}"></td>
+        <td th:text="${songList.getSongPath()}"></td>
+        <td><a th:href="@{/song/edit/{id}(id = ${songList.getId()})}">Edit</a></td>
+        <td><a th:href="@{/song/delete/{id}(id = ${songList.getId()})}">Delete</a></td>
+    </tr>
+</table>
+</body>
+</html>
