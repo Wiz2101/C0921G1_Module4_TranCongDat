@@ -16,6 +16,15 @@
     <p style="color: #298635" th:text="${createMsg}"></p>
     <p style="color: #aa871c" th:text="${updateMsg}"></p>
     <p style="color: #b60a0a" th:text="${deleteMsg}"></p>
+    <form action="/blog">
+        <label>Author</label>
+        <input type="text" name="keyword" placeholder="Enter Author">
+        <label>Category</label>
+        <select name="category">
+            <option th:each="category : ${categoryList}" th:value="${category.id}" th:text="${category.name}"></option>
+        </select>
+        <input type="submit" value="Search">
+    </form>
     <table class="table table-striped table-hover" th:unless="${blogList.isEmpty()}">
         <tr>
             <th>ID</th>
@@ -28,14 +37,15 @@
             <th>Delete</th>
         </tr>
         <tr th:each="blog : ${blogList}">
-            <td th:text="${blog.postId}"></td>
+            <td th:text="${blog.id}"></td>
             <td th:text="${blog.titlle}"></td>
             <td th:text="${blog.body}"></td>
             <td th:text="${blog.author}"></td>
             <td th:text="${blog.createDate}"></td>
-            <td th:text="${blog.categories}"></td>
-            <td><a class="btn btn-warning" th:href="@{/blog/edit/__${blog.getPostId()}__}">Edit</a></td>
-            <td><a class="btn btn-danger" th:href="@{/blog/delete/__${blog.getPostId()}__}">Delete</a></td>
+            <td th:each="cate: ${blog.categories}" th:text="${cate.name}" th:if="${!blog.categories.isEmpty()}"></td>
+            <td  th:if="${blog.categories.isEmpty()}">Chua chon</td>
+            <td><a class="btn btn-warning" th:href="@{/blog/edit/__${blog.getId()}__}">Edit</a></td>
+            <td><a class="btn btn-danger" th:href="@{/blog/delete/__${blog.getId()}__}">Delete</a></td>
         </tr>
     </table>
     <div class="text-center ">

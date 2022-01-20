@@ -38,4 +38,9 @@ public class CategoryService implements ICategoryService{
     public List<Category> findAll() {
         return categoryRepository.findAll();
     }
+
+    @Override
+    public Page<Category> searchById(Long id, Pageable pageable) {
+        return categoryRepository.searchById(id,pageable);
+    }
 }

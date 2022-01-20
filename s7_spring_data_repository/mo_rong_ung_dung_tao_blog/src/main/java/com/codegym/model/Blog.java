@@ -6,8 +6,8 @@ import java.util.Set;
 @Entity
 public class Blog {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    Long postId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
     String titlle;
     String body;
     String author;
@@ -27,12 +27,12 @@ public class Blog {
         this.createDate = createDate;
     }
 
-    public Long getPostId() {
-        return postId;
+    public Long getId() {
+        return id;
     }
 
-    public void setPostId(Long postId) {
-        this.postId = postId;
+    public void setId(Long postId) {
+        this.id = postId;
     }
 
     public String getTitlle() {
