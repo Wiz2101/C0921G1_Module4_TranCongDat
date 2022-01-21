@@ -28,7 +28,7 @@ public class BlogController {
     ICategoryService categoryService;
 
     @GetMapping("/blog")
-    public String showHomepage(Optional<String> keyword, Optional<Long> category, Model model, @PageableDefault(size = 5, sort = "createDate", direction = Sort.Direction.ASC) Pageable pageable) {
+    public String showHomepage(Optional<String> keyword, Optional<Long> category, Model model, @PageableDefault(size = 5) Pageable pageable) {
         Page<Blog> blogList = blogService.findAll(pageable);
         model.addAttribute("categoryList", categoryService.findAll());
         if (!keyword.isPresent() || keyword.get().equals("")) {
