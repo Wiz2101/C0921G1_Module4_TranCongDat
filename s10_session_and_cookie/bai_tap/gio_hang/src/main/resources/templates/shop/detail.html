@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <style>
+        .content p {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container my-4">
+    <a class="btn btn-warning" href="/shop">Shop</a>
+    <a class="btn btn-success my-4" href="/shopping-cart">Your cart</a>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="product" style="text-align: center">
+                <img style="width: 300px; height: 300px; display: block; margin: 0 auto" th:src="${product.image}">
+                <h2 style="text-align: center; color: indianred; font-weight: bold" th:text="${product.name}"></h2>
+                <p style="text-align: center; font-size: 18px; font-weight: 500" th:text="${product.price} + '.000 VND'"></p>
+                <a class="btn btn-success" th:href="@{cart/add/__${product.id}__(action='list')}">Add To Cart</a>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="content border" style="background-color: #7dcd79; border-radius: 10px">
+                <p><i class="bi bi-star-fill"></i> Tặng banner, thiệp (trị giá 200.000 VNĐ) miễn phí</p>
+                <p><i class="bi bi-star-fill"></i> Giảm ngay 20.000 VNĐ khi tạo đơn hàng online</p>
+                <p><i class="bi bi-star-fill"></i> Giảm tiếp 3% cho đơn hàng online lần thứ 2, 5% cho đơn hàng online lần thứ 6 và 10% cho đơn hàng lần thứ 12 (Chỉ áp dụng tại Đà Nẵng)</p>
+                <p><i class="bi bi-star-fill"></i> Giao hàng miễn phí trong nội thành (bán kính dưới 5km)</p>
+                <p><i class="bi bi-star-fill"></i> Giao gấp trong vòng 2 giờ</p>
+                <p><i class="bi bi-star-fill"></i> Cam kết 100% hoàn lại tiền nếu bạn không hài lòng</p>
+                <p><i class="bi bi-star-fill"></i> Cam kết hoa tươi trên 3 ngày</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
