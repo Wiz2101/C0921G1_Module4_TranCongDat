@@ -16,6 +16,11 @@ public class CategoryService implements ICategoryService{
     ICategoryRepository categoryRepository;
 
     @Override
+    public Iterable<Category> findAll() {
+        return categoryRepository.findAll();
+    }
+
+    @Override
     public List<Category> findAll(Pageable pageable) {
         return categoryRepository.findAll();
     }

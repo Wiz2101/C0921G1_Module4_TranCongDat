@@ -15,6 +15,11 @@ public class BlogService implements IBlogService {
     IBlogRepository blogRepository;
 
     @Override
+    public Iterable<Blog> findAll() {
+        return blogRepository.findAll();
+    }
+
+    @Override
     public Page<Blog> findAllByAuthorContaining(String keyword, Pageable pageable){
         return blogRepository.findAllByAuthorContaining(keyword,pageable);
     }
@@ -22,6 +27,11 @@ public class BlogService implements IBlogService {
     @Override
     public Page<Blog> searchByAuthorAndType(String author, Long categoryId, Pageable pageable) {
         return blogRepository.searchByAuthorAndType("%"+author+"%",categoryId,pageable);
+    }
+
+    @Override
+    public Iterable<Blog> findAllByCategory(Long categoryId) {
+        return blogRepository.findAllByCategory(categoryId);
     }
 
     @Override
