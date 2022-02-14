@@ -3,15 +3,17 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>List Smartphone</title>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
 
         function addNewSmartPhone() {
             //lay du lieu
+            let id = $('#id').val();
             let producer = $('#producer').val();
             let model = $('#model').val();
             let price = $('#price').val();
             let newSmartphone = {
+                id: id,
                 producer: producer,
                 model: model,
                 price: price
@@ -47,6 +49,7 @@
                         '        <td>Model</td>\n' +
                         '        <td>Price</td>\n' +
                         '        <td>Delete</td>\n' +
+                        '        <td>Update</td>\n' +
                         '    </tr>';
                     for (let i = 0; i < data.length; i++) {
                         content += getSmartphone(data[i]);
@@ -58,7 +61,8 @@
 
         function getSmartphone(smartphone) {
             return `<tr><td >${smartphone.producer}</td><td >${smartphone.model}</td><td >${smartphone.price}</td>` +
-                `<td><a class="deleteSmartphone" href="${smartphone.id}">Delete</a></td></tr>`;
+                `<td><a class="deleteSmartphone" href="${smartphone.id}">Delete</a>
+<td><a class="updateSmartphone" href="${smartphone.id}">Update</a></td></tr>`;
         }
 
         $(document).ready(function () {
@@ -71,7 +75,7 @@
                 $.ajax({
                     type: "DELETE",
                     //tên API
-                    url: `/smartphones/${smartphoneId}`,
+                    url: "/smartphones/" + smartphoneId,
                     //xử lý khi thành công
                     success: function (data) {
                         a.parent().parent().remove();
@@ -79,6 +83,22 @@
 
                 });
                 //chặn sự kiện mặc định của thẻ
+                event.preventDefault();
+            });
+            $('.updateSmartphone').click(function () {
+                let a = $(this);
+                let smartphoneId = a.attr("href");
+                $.ajax({
+                    type: "PUT",
+                    url: "/smartphones/" + smartphoneId,
+                    success: function (data) {
+                        $('#id').val(data.id);
+                        $('#producer').val(data.producer);
+                        $('#model').val(data.model);
+                        $('#price').val(data.price);
+                    }
+
+                });
                 event.preventDefault();
             });
         })
@@ -101,8 +121,9 @@
         </tr>
         <tr>
             <td></td>
-            <td><input type="submit" value="Add" onclick="addNewSmartPhone()"></td>
+            <td><input type="submit" value="Save" onclick="addNewSmartPhone()"></td>
         </tr>
+        <td><input type="text" id="id" hidden></td>
     </table>
 </form>
 <h1>Smartphone List</h1>
@@ -112,6 +133,7 @@
         <td>Model</td>
         <td>Price</td>
         <td>Delete</td>
+        <td>Update</td>
     </tr>
     <th:block th:each="smartphone: ${smartphones}">
         <tr>
@@ -119,7 +141,7 @@
             <td th:text="${smartphone.model}"></td>
             <td th:text="${smartphone.price}"></td>
             <td><a class="deleteSmartphone" th:href="${smartphone.getId()}">Delete</a></td>
-            <td><a class="editSmartphone" th:href="${smartphone.getId()}">Edit</a></td>
+            <td><a class="updateSmartphone" th:href="${smartphone.getId()}">Update</a></td>
         </tr>
     </th:block>
 </table>

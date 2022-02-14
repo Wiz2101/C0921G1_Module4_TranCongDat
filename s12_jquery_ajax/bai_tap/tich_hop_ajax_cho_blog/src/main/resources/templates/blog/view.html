@@ -18,12 +18,12 @@
     <p style="color: #b60a0a" th:text="${deleteMsg}"></p>
     <form action="/blog">
         <label>Author</label>
-        <input id="inputSearch" type="text" name="keyword" placeholder="Enter Author">
+        <input id="inputKeyword" type="text" name="keyword" placeholder="Enter Author">
         <label>Category</label>
-        <select name="category">
+        <select name="category" id="inputCategory">
             <option th:each="category : ${categoryList}" th:value="${category.id}" th:text="${category.name}"></option>
         </select>
-        <input type="submit" value="Search">
+        <input id="actionSearch" type="submit" value="Search">
     </form>
     <table class="table table-striped table-hover" th:unless="${blogList.isEmpty()}">
         <tr>
@@ -36,17 +36,17 @@
             <th>Update</th>
             <th>Delete</th>
         </tr>
-        <!--        <tr th:each="blog : ${blogList}">-->
-        <!--            <td th:text="${blog.id}"></td>-->
-        <!--            <td th:text="${blog.titlle}"></td>-->
-        <!--            <td th:text="${blog.body}"></td>-->
-        <!--            <td th:text="${blog.author}"></td>-->
-        <!--            <td th:text="${blog.createDate}"></td>-->
-        <!--            <td th:each="cate: ${blog.categories}" th:text="${cate.name}" th:if="${!blog.categories.isEmpty()}"></td>-->
-        <!--            <td  th:if="${blog.categories.isEmpty()}">Chua chon</td>-->
-        <!--            <td><a class="btn btn-warning" th:href="@{/blog/edit/__${blog.getId()}__}">Edit</a></td>-->
-        <!--            <td><a class="btn btn-danger" th:href="@{/blog/delete/__${blog.getId()}__}">Delete</a></td>-->
-        <!--        </tr>-->
+                <tr th:each="blog : ${blogList}">
+                    <td th:text="${blog.id}"></td>
+                    <td th:text="${blog.titlle}"></td>
+                    <td th:text="${blog.body}"></td>
+                    <td th:text="${blog.author}"></td>
+                    <td th:text="${blog.createDate}"></td>
+                    <td th:each="cate: ${blog.categories}" th:text="${cate.name}" th:if="${!blog.categories.isEmpty()}"></td>
+                    <td  th:if="${blog.categories.isEmpty()}">Chua chon</td>
+                    <td><a class="btn btn-warning" th:href="@{/blog/edit/__${blog.getId()}__}">Edit</a></td>
+                    <td><a class="btn btn-danger" th:href="@{/blog/delete/__${blog.getId()}__}">Delete</a></td>
+                </tr>
     </table>
     <div class="text-center ">
         <a class="btn btn-primary" th:href="@{'blog'(page=${blogList.number - 1})}" th:if="${blogList.hasPrevious()}">Previous</a>
@@ -58,9 +58,11 @@
 </div>
 
 <script>
-    $("#inputSearch").onchange(function () {
-        let value = $(this).value();
-        console.log(value)
+    $("#actionSearch").click(function () {
+        let value1 = $('#inputCategory').value();
+        let value2 = $('#inputSearch').value();
+        console.log(value1)
+        console.log(value2)
         $("table").empty();
 
         $.ajax({
@@ -69,18 +71,7 @@
             dataType: "json",
             success: function (data) {
                 console.log(data)
-                let tr = [];
-                for (let i = 0; i < data.length; i++) {
-                    tr.push('<tr>');
-                    tr.push('<td>' + data[i].id + '</td>');
-                    tr.push('<td>' + data[i].title + '</td>');
-                    tr.push('<td>' + data[i].body + '</td>');
-                    tr.push('<td>' + data[i].author + '</td>');
-                    tr.push('<td>' + data[i].createDate + '</td>');
-                    tr.push('<td>' + data[i].category + '</td>');
-                    tr.push('</tr>');
-                }
-                $('table').append(tr.join(""));
+                $('table').html(data)
             }
         })
     })

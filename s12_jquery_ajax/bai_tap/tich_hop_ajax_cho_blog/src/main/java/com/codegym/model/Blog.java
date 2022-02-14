@@ -4,51 +4,46 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table(name = "blogs")
 public class Blog {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    String titlle;
-    String body;
-    String author;
-    String createDate;
+    private Long id;
+    private String name;
+    private String author;
+    private String title;
+    private String content;
 
-    @ManyToMany
-    @JoinTable(name = "blog_category", joinColumns = @JoinColumn(name = "blog_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
-    private Set<Category> categories;
+
+    @ManyToOne(targetEntity = Category.class)
+    private Category category;
 
     public Blog() {
     }
 
-    public Blog(String titlle, String body, String author, String createDate) {
-        this.titlle = titlle;
-        this.body = body;
+    public Blog(String name, String author, String title, String content, Category category) {
+        this.name = name;
         this.author = author;
-        this.createDate = createDate;
+        this.title = title;
+        this.content = content;
+        this.category = category;
     }
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long postId) {
-        this.id = postId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getTitlle() {
-        return titlle;
+    public String getName() {
+        return name;
     }
 
-    public void setTitlle(String titlle) {
-        this.titlle = titlle;
-    }
-
-    public String getBody() {
-        return body;
-    }
-
-    public void setBody(String body) {
-        this.body = body;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAuthor() {
@@ -59,19 +54,27 @@ public class Blog {
         this.author = author;
     }
 
-    public String getCreateDate() {
-        return createDate;
+    public String getTitle() {
+        return title;
     }
 
-    public void setCreateDate(String createDate) {
-        this.createDate = createDate;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public Set<Category> getCategories() {
-        return categories;
+    public String getContent() {
+        return content;
     }
 
-    public void setCategories(Set<Category> categories) {
-        this.categories = categories;
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

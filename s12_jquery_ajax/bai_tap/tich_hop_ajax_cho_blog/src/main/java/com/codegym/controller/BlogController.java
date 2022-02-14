@@ -1,24 +1,26 @@
 package com.codegym.controller;
 
 import com.codegym.model.Blog;
+import com.codegym.model.Category;
 import com.codegym.service.IBlogService;
 import com.codegym.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.List;
 import java.util.Optional;
 
-
-@Controller
+@CrossOrigin(origins = "*")
+@RestController
+@RequestMapping("api/blog")
 public class BlogController {
     @Autowired
     IBlogService blogService;
@@ -26,58 +28,47 @@ public class BlogController {
     @Autowired
     ICategoryService categoryService;
 
-    @GetMapping("/blog")
-    public String showHomepage(Optional<String> keyword, Optional<Long> category, Model model, @PageableDefault(size = 5) Pageable pageable) {
-        Page<Blog> blogList = blogService.findAll(pageable);
-        model.addAttribute("categoryList", categoryService.findAll());
-        if (!keyword.isPresent() || keyword.get().equals("")) {
-            if (!category.isPresent()) {
-                model.addAttribute("blogList", blogService.findAll(pageable));
-            } else {
-                model.addAttribute("blogList", categoryService.searchById(category.get(), pageable));
-                model.addAttribute("category", category.get());
-            }
-        } else if (!category.isPresent()) {
-            model.addAttribute("keyword", keyword.get());
-            model.addAttribute("blogList", blogService.findAllByAuthorContaining(keyword.get(), pageable));
-        } else {
-            model.addAttribute("blogList", blogService.searchByAuthorAndType(keyword.get(), category.get(), pageable));
+    @GetMapping("/category")
+    public ResponseEntity<List<Category>> findAllCategory() {
+        List<Category> categoryList = categoryService.findAll();
+        if (categoryList.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return "/blog/view";
+        return new ResponseEntity<>(categoryList, HttpStatus.OK);
     }
 
-    @GetMapping("/blog/create")
-    public String showCreate(Model model) {
-        model.addAttribute("blog", new Blog());
-        model.addAttribute("categoryList", categoryService.findAll());
-        return "/blog/create";
+    @GetMapping()
+    public ResponseEntity<List<Blog>> findAllBlog() {
+        List<Blog> blogList = (List<Blog>) blogService.findAll();
+        if (blogList.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(blogList, HttpStatus.OK);
     }
 
-    @PostMapping("/blog/create")
-    public String create(@ModelAttribute Blog blog, RedirectAttributes redirectAttributes) {
-        blogService.saveOrUpdate(blog);
-        redirectAttributes.addFlashAttribute("createMsg", "Create or Update Successfully!");
-        return "redirect:/blog";
-    }
-
-    @GetMapping("/blog/edit/{id}")
-    public String showEdit(@PathVariable Long id, Model model) {
+    @GetMapping("/{id}")
+    public ResponseEntity<Blog> findBook(@PathVariable Long id) {
         Blog blog = blogService.findById(id);
-        model.addAttribute("blog", blog);
-        return "/blog/edit";
+        if (blog == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(blog, HttpStatus.OK);
     }
 
-    @GetMapping("/blog/delete/{id}")
-    public String delete(@PathVariable Long id, RedirectAttributes redirectAttributes) {
-        blogService.delete(id);
-        redirectAttributes.addFlashAttribute("deleteMsg", "Delete Successfully!");
-        return "redirect:/blog";
+    @GetMapping("/searchByCategory")
+    public ResponseEntity<List<Blog>> findByCategory(@RequestParam("categoryName") String categoryName) {
+        List<Blog> blogList = blogService.findByCategory(categoryName);
+        if (blogList.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(blogList, HttpStatus.OK);
     }
-
-//    @GetMapping("blog/search")
-//    public String search(@RequestParam String keyword, @RequestParam Long category, Model model, Pageable pageable){
-//        Page<Blog> blogList = blogService.searchByAuthorAndType(keyword,category,pageable);
-//        model.addAttribute("blogList",blogList);
-//        return "blog/view";
-//    }
+    @GetMapping("/search")
+    public ResponseEntity<List<Blog>> findByName(@RequestParam("name") String name) {
+        List<Blog> blogList = blogService.findByName(name);
+        if (blogList.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(blogList, HttpStatus.OK);
+    }
 }
