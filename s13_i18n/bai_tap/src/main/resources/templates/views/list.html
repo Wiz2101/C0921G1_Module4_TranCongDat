@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <a href="/customer/create">Add New Customer</a>
+    <a href="?lang=en">English</a>
+    <a href="?lang=vi">Vietnamese</a>
+    <p style="color: seagreen" th:text="${msgSC}"></p>
+    <p style="color: darkblue" th:text="${msgEdit}"></p>
+    <p style="color: indianred" th:text="${msgDel}"></p>
+    <p th:if="${customerList.isEmpty()}">Empty List</p>
+<table border="1" th:unless="${customerList.isEmpty()}">
+    <caption>Customer List</caption>
+    <tr>
+        <th th:text="#{message.Id}"></th>
+        <th th:text="#{message.FirstName}"></th>
+        <th th:text="#{message.LastName}"></th>
+        <th th:text="#{message.Edit}"></th>
+        <th th:text="#{message.Delete}"></th>
+
+    </tr>
+    <tr th:each="customerList : ${customerList}">
+        <td th:text="${customerList.getId()}"></td>
+        <td th:text="${customerList.getFirstName()}"></td>
+        <td th:text="${customerList.getLastName()}"></td>
+        <td><a th:href="@{/customer/edit/{id}(id = ${customerList.getId()})}">Edit</a></td>
+        <td><a th:href="@{/customer/delete/{id}(id = ${customerList.getId()})}">Delete</a></td>
+    </tr>
+</table>
+</body>
+</html>
