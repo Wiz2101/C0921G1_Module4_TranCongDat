@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Blog Maneger</h1>
+    <input type="text" id="searchByName" placeholder="Search By Category">
+    <button id="search">Search By Category</button>
+    <button id="downloadMore">Download More</button>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Category</th>
+        </tr>
+    </table>
+</div>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: "http://localhost:8080/api/blog",
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                let tr = [];
+                for (let i = 0; i < data.length; i++) {
+                    tr.push('<tr>')
+                    tr.push('<td>' + data[i].name + '</td>')
+                    tr.push('<td>' + data[i].author + '</td>')
+                    tr.push('<td>' + data[i].title + '</td>')
+                    tr.push('<td>' + data[i].content + '</td>')
+                    tr.push('<td>' + data[i].category.name + '</td>')
+                    tr.push('</tr>')
+                }
+                $('table').append(tr.join(''))
+            }
+        })
+        $("#search").click(function () {
+            let val = $("#searchByName").val();
+            $("table").empty();
+            $.ajax({
+                url: "http://localhost:8080/api/blog/search?name=" + val,
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    let tr = [];
+                    tr.push('<tr>')
+                    tr.push('<th>Id</th>')
+                    tr.push('<th>Name</th>')
+                    tr.push('<th>Blogger</th>')
+                    tr.push('<th>Category</th>')
+                    tr.push('<th>View</th>')
+                    tr.push('</tr>')
+                    for (let i = 0; i < data.length; i++) {
+                        tr.push('<tr>')
+                        tr.push('<td>' + data[i].name + '</td>')
+                        tr.push('<td>' + data[i].author + '</td>')
+                        tr.push('<td>' + data[i].title + '</td>')
+                        tr.push('<td>' + data[i].content + '</td>')
+                        tr.push('<td>' + data[i].category.name + '</td>')
+                        tr.push('</tr>')
+                    }
+                    $('table').append(tr.join(''))
+                }
+            })
+        })
+        $("#downloadMore").click(function () {
+            $.ajax({
+                url: "http://localhost:8080/api/blog",
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    let tr = [];
+                    tr.push('<tr>')
+                    tr.push('<th>Id</th>')
+                    tr.push('<th>Name</th>')
+                    tr.push('<th>Blogger</th>')
+                    tr.push('<th>Category</th>')
+                    tr.push('<th>View</th>')
+                    tr.push('</tr>')
+                    $("table").empty();
+                    for (let i = 0; i < data.length; i++) {
+                        tr.push('<tr>')
+                        tr.push('<td>' + data[i].name + '</td>')
+                        tr.push('<td>' + data[i].author + '</td>')
+                        tr.push('<td>' + data[i].title + '</td>')
+                        tr.push('<td>' + data[i].content + '</td>')
+                        tr.push('<td>' + data[i].category.name + '</td>')
+                        tr.push('</tr>')
+                    }
+                    $('table').append(tr.join(''))
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>
