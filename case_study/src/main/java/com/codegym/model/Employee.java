@@ -1,6 +1,7 @@
 package com.codegym.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "employee")
@@ -22,6 +23,19 @@ public class Employee {
     @ManyToOne
     @JoinColumn (name = "educationDegree_id", referencedColumnName = "educationDegreeId")
     private EducationDegree educationDegrees;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return employeeId.equals(employee.employeeId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(employeeId);
+    }
 
     @ManyToOne
     @JoinColumn (name = "division_id",referencedColumnName = "divisionId")

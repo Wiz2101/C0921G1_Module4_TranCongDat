@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table table-hover" th:object="${employee}">
+    <tr>
+        <th scope="col">Name</th>
+        <td scope="col" th:text="${employee.get().employeeName}"></td>
+    </tr>
+    <tr>
+        <th scope="col">Birthday</th>
+        <td scope="col" th:text="${employee.get().employeeBirthday}"></td>
+    </tr>
+    <tr>
+        <th scope="col">ID Card</th>
+        <td scope="col" th:text="${employee.get().employeeIdCard}"></td>
+    </tr>
+    <tr>
+        <th scope="col">Salary</th>
+        <td scope="col" th:text="${employee.get().employeeSalary}"></td>
+    </tr>
+    <tr>
+        <th scope="col">Phone Number</th>
+        <td scope="col" th:text="${employee.get().employeePhone}"></td>
+    </tr>
+    <tr>
+        <th scope="col">Email</th>
+        <td scope="col" th:text="${employee.get().employeeEmail}"></td>
+    </tr>
+    <tr>
+        <th scope="col">Address</th>
+        <td scope="col" th:text="${employee.get().employeeAddress}"></td>
+    </tr>
+    <tr>
+        <th scope="col">Position</th>
+        <td scope="col" th:text="${employee.get().positions.positionName}"></td>
+    </tr>
+    <tr>
+        <th scope="col">Education Degree</th>
+        <td scope="col" th:text="${employee.get().educationDegrees.educationDegreeName}"></td>
+    </tr>
+    <tr>
+        <th scope="col">Division</th>
+        <td scope="col" th:text="${employee.get().divisions.divisionName}"></td>
+    </tr>
+</table>
+</body>
+</html>

@@ -4,9 +4,12 @@ import com.codegym.model.Employee;
 import com.codegym.repository.IEmployeeRepository;
 import com.codegym.service.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeeService implements IEmployeeService {
@@ -26,5 +29,20 @@ public class EmployeeService implements IEmployeeService {
     @Override
     public void remove(Long id) {
         employeeRepository.deleteById(id);
+    }
+
+    @Override
+    public Optional<Employee> findById(Long id) {
+        return employeeRepository.findById(id);
+    }
+
+    @Override
+    public Page<Employee> findAll(Pageable pageable) {
+        return employeeRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Employee> findByName(String keyword, Pageable pageable) {
+        return employeeRepository.findEmployeeByEmployeeNameContaining(keyword, pageable);
     }
 }
