@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table table-hover" th:object="${customer}">
+    <tr>
+        <th scope="col">Customer Type</th>
+        <td scope="col" th:text="${customer.get().customerTypes.customerTypeName}"></td>
+    </tr>
+    <tr>
+        <th scope="col">Name</th>
+        <td scope="col" th:text="${customer.get().customerName}"></td>
+    </tr>
+    <tr>
+        <th scope="col">Birthday</th>
+        <td scope="col" th:text="${customer.get().customerBirthday}"></td>
+    </tr>
+    <tr>
+        <th scope="col">Gender</th>
+        <td scope="col" th:text="${customer.get().customerGender}"></td>
+    </tr>
+    <tr>
+        <th scope="col">ID Card</th>
+        <td scope="col" th:text="${customer.get().customerIdCard}"></td>
+    </tr>
+    <tr>
+        <th scope="col">Phone Number</th>
+        <td scope="col" th:text="${customer.get().customerPhone}"></td>
+    </tr>
+    <tr>
+        <th scope="col">Email</th>
+        <td scope="col" th:text="${customer.get().customerEmail}"></td>
+    </tr>
+    <tr>
+        <th scope="col">Address</th>
+        <td scope="col" th:text="${customer.get().customerAddress}"></td>
+    </tr>
+</table>
+</body>
+</html>

@@ -23,7 +23,7 @@
 <nav class="d-flex justify-content-center py-3">
     <ul class="nav nav-pills">
         <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Home</a></li>
-        <li class="nav-item"><a href="/employee" class="nav-link">Employee</a></li>
+        <li class="nav-item"><a href="/service" class="nav-link">Employee</a></li>
         <li class="nav-item"><a href="/customer" class="nav-link">Customer</a></li>
         <li class="nav-item"><a href="/service" class="nav-link">Service</a></li>
         <li class="nav-item"><a href="/contract" class="nav-link">Contract</a></li>
@@ -43,8 +43,8 @@
         </div>
         <div class="col-lg-9">
             <div class="container">
-                <a class="btn btn-success mb-5" href="/employee/create">Create</a>
-                <form class="input-group mb-3" action="/employee">
+                <a class="btn btn-success mb-5" href="/service/create">Create</a>
+                <form class="input-group mb-3" action="/service">
                     <input class="form-control" type="text" name="keyword" placeholder="Enter Name">
                     <input class="btn btn-primary" type="submit" value="Search">
                 </form>
@@ -55,61 +55,71 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Phone</th>
-                        <th>Email</th>
-                        <th>Address</th>
-                        <th>Position</th>
-                        <th colspan="3">Action</th>
+                        <th>Area</th>
+                        <th>Cost</th>
+                        <th>Max People</th>
+                        <th>Rent Type</th>
+                        <th>Service Type</th>
+                        <th>Standard Room</th>
+                        <th>Other Convenience</th>
+                        <th>Pool Area</th>
+                        <th>Number of Floors</th>
+<!--                        <th colspan="3">Action</th>-->
                     </tr>
-                    <tr th:each="employee : ${employeeList}">
-                        <td th:text="${employee.employeeId}"></td>
-                        <td th:text="${employee.employeeName}"></td>
-                        <td th:text="${employee.employeePhone}"></td>
-                        <td th:text="${employee.employeeEmail}"></td>
-                        <td th:text="${employee.employeeAddress}"></td>
-                        <td th:text="${employee.positions.positionName}"></td>
-                        <td>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="viewModal btn btn-primary">
-                                View
-                            </button>
-                            <input type="text" th:value="${employee.employeeId}" hidden>
+                    <tr th:each="service : ${serviceList}">
+                        <td th:text="${service.serviceId}"></td>
+                        <td th:text="${service.serviceName}"></td>
+                        <td th:text="${service.serviceArea}"></td>
+                        <td th:text="${service.serviceCost}"></td>
+                        <td th:text="${service.serviceMaxPeople}"></td>
+                        <td th:text="${service.rentTypes.rentTypeName}"></td>
+                        <td th:text="${service.serviceTypes.serviceTypeName}"></td>
+                        <td th:text="${service.standardRoom}"></td>
+                        <td th:text="${service.descriptionOtherConvenience}"></td>
+                        <td th:text="${service.poolArea}"></td>
+                        <td th:text="${service.numberOfFloors}"></td>
+<!--                        <td>-->
+<!--                            &lt;!&ndash; Button trigger modal &ndash;&gt;-->
+<!--                            <button id="viewModal" type="button" class="btn btn-primary">-->
+<!--                                View-->
+<!--                            </button>-->
+<!--                            <input type="text" th:value="${service.serviceId}" hidden>-->
 
-                        </td>
-                        <td><a class="btn btn-warning" th:href="@{/employee/edit/__${employee.employeeId}__}">Update</a></td>
-                        <td><!-- Button trigger modal -->
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" th:data-bs-target="'#DeleteModal' + ${employee.employeeId}" >
-                                Delete
-                            </button>
-                            <!-- Modal -->
-                            <div class="modal fade" th:id="'DeleteModal' + ${employee.employeeId}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>Are you sure to delete <span th:text="${employee.employeeName}"> </span> ?</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <a class="btn btn-danger" style="text-decoration: none" th:href="@{/employee/delete/__${employee.employeeId}__}">Delete</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
+<!--                        </td>-->
+<!--                        <td><a class="btn btn-warning" th:href="@{/service/edit/__${service.serviceId}__}">Update</a></td>-->
+<!--                        <td>&lt;!&ndash; Button trigger modal &ndash;&gt;-->
+<!--                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#DeleteModal">-->
+<!--                                Delete-->
+<!--                            </button>-->
+<!--                            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--                            <div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--                                <div class="modal-dialog">-->
+<!--                                    <div class="modal-content">-->
+<!--                                        <div class="modal-header">-->
+<!--                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>-->
+<!--                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--                                        </div>-->
+<!--                                        <div class="modal-body">-->
+<!--                                            <p>Are you sure to delete <span th:text="${service.serviceName}"> </span> ?</p>-->
+<!--                                        </div>-->
+<!--                                        <div class="modal-footer">-->
+<!--                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+<!--                                            <button type="button" class="btn btn-danger"><a style="text-decoration: none" th:href="@{/service/delete/__${service.serviceId}__}"></a>Delete</button>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </td>-->
                     </tr>
                 </table>
-                <div>
-                    <a th:href="@{'/employee'(page=${employeeList.number - 1})}"
-                       th:if="${employeeList.hasPrevious()}">Previous</a>
-                    <span th:text="${employeeList.number + 1}"></span>/<span
-                        th:text="${employeeList.totalPages}"></span>
-                    <a th:href="@{'/employee'(page=${employeeList.number + 1})}"
-                       th:if="${employeeList.hasNext()}">Next</a>
-                </div>
+<!--                <div>-->
+<!--                    <a th:href="@{'/service'(page=${serviceList.number - 1})}"-->
+<!--                       th:if="${serviceList.hasPrevious()}">Previous</a>-->
+<!--                    <span th:text="${serviceList.number + 1}"></span>/<span-->
+<!--                        th:text="${serviceList.totalPages}"></span>-->
+<!--                    <a th:href="@{'/service'(page=${serviceList.number + 1})}"-->
+<!--                       th:if="${serviceList.hasNext()}">Next</a>-->
+<!--                </div>-->
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModalEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -167,10 +177,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
-        $(".viewModal").click(function () {
+        $("#viewModal").click(function () {
             let idEmp = $(this).next().val();
             $.ajax({
-                url: "/employee/view/" + idEmp,
+                url: "/service/view/" + idEmp,
                 type: "GET",
                 dataType: "HTML",
                 success: function (data) {

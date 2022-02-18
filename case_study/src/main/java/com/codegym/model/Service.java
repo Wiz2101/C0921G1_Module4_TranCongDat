@@ -12,6 +12,7 @@ public class Service {
     private String serviceName;
     private Integer serviceArea;
     private Long serviceCost;
+    private Integer serviceMaxPeople;
     private String standardRoom;
     private String descriptionOtherConvenience;
     private Double poolArea;
@@ -31,10 +32,11 @@ public class Service {
     public Service() {
     }
 
-    public Service(String serviceName, Integer serviceArea, Long serviceCost, String standardRoom, String descriptionOtherConvenience, Double poolArea, Integer numberOfFloors, ServiceType serviceTypes, RentType rentTypes, List<Contract> contracts) {
+    public Service(String serviceName, Integer serviceArea, Long serviceCost, Integer serviceMaxPeople, String standardRoom, String descriptionOtherConvenience, Double poolArea, Integer numberOfFloors, ServiceType serviceTypes, RentType rentTypes, List<Contract> contracts) {
         this.serviceName = serviceName;
         this.serviceArea = serviceArea;
         this.serviceCost = serviceCost;
+        this.serviceMaxPeople = serviceMaxPeople;
         this.standardRoom = standardRoom;
         this.descriptionOtherConvenience = descriptionOtherConvenience;
         this.poolArea = poolArea;
@@ -74,6 +76,14 @@ public class Service {
 
     public void setServiceCost(Long serviceCost) {
         this.serviceCost = serviceCost;
+    }
+
+    public Integer getServiceMaxPeople() {
+        return serviceMaxPeople;
+    }
+
+    public void setServiceMaxPeople(Integer serviceMaxPeople) {
+        this.serviceMaxPeople = serviceMaxPeople;
     }
 
     public String getStandardRoom() {

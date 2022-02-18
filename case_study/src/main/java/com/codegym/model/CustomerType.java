@@ -1,7 +1,7 @@
 package com.codegym.model;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "customer_type")
@@ -12,12 +12,12 @@ public class CustomerType {
     private String customerTypeName;
 
     @OneToMany(mappedBy = "customerTypes")
-    private List<Customer> customers;
+    private Set<Customer> customers;
 
     public CustomerType() {
     }
 
-    public CustomerType(String customerTypeName, List<Customer> customers) {
+    public CustomerType(String customerTypeName, Set<Customer> customers) {
         this.customerTypeName = customerTypeName;
         this.customers = customers;
     }
@@ -38,11 +38,11 @@ public class CustomerType {
         this.customerTypeName = customerTypeName;
     }
 
-    public List<Customer> getCustomers() {
+    public Set<Customer> getCustomers() {
         return customers;
     }
 
-    public void setCustomers(List<Customer> customers) {
+    public void setCustomers(Set<Customer> customers) {
         this.customers = customers;
     }
 }
