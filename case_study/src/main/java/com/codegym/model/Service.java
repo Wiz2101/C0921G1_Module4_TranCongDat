@@ -9,6 +9,7 @@ public class Service {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long serviceId;
+    private String serviceCode;
     private String serviceName;
     private Integer serviceArea;
     private Long serviceCost;
@@ -32,7 +33,8 @@ public class Service {
     public Service() {
     }
 
-    public Service(String serviceName, Integer serviceArea, Long serviceCost, Integer serviceMaxPeople, String standardRoom, String descriptionOtherConvenience, Double poolArea, Integer numberOfFloors, ServiceType serviceTypes, RentType rentTypes, List<Contract> contracts) {
+    public Service(String serviceCode, String serviceName, Integer serviceArea, Long serviceCost, Integer serviceMaxPeople, String standardRoom, String descriptionOtherConvenience, Double poolArea, Integer numberOfFloors, ServiceType serviceTypes, RentType rentTypes, List<Contract> contracts) {
+        this.serviceCode = serviceCode;
         this.serviceName = serviceName;
         this.serviceArea = serviceArea;
         this.serviceCost = serviceCost;
@@ -52,6 +54,14 @@ public class Service {
 
     public void setServiceId(Long serviceId) {
         this.serviceId = serviceId;
+    }
+
+    public String getServiceCode() {
+        return serviceCode;
+    }
+
+    public void setServiceCode(String serviceCode) {
+        this.serviceCode = serviceCode;
     }
 
     public String getServiceName() {

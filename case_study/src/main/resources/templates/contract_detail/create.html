@@ -44,27 +44,17 @@
         <div class="col-lg-9">
             <div class="container">
                 <div class="row">
-                    <form action="/contract/create" method="post" th:object="${contract}">
-                        <label class="form-label mb-3">Contract Start Date</label>
-                        <input class="form-control mb-3" type="date" th:field="*{contractStartDate}">
-                        <label class="form-label mb-3">Contract End Date</label>
-                        <input class="form-control mb-3" type="date" th:field="*{contractEndDate}">
-                        <label class="form-label mb-3">Contract Deposit</label>
-                        <input class="form-control mb-3" type="text" th:field="*{contractDeposit}">
-                        <label class="form-label mb-3">Contract Total Money</label>
-                        <input class="form-control mb-3" type="text" th:field="*{contractTotalMoney}">
-                        <label class="form-label mb-3">Employee</label>
-                        <select class="form-select mb-3" th:field="*{employees}">
-                            <option th:each="employee : ${employeeList}" th:value="${employee.employeeId}" th:text="${employee.employeeName}"></option>
+                    <form action="/contract-detail/create" method="post" th:object="${contractDetail}">
+                        <label class="form-label mb-3">Contract</label>
+                        <select class="form-select mb-3" th:field="*{contracts}">
+                            <option th:each="contract : ${contractList}" th:value="${contract.contractId}" th:text="${contract.contractId}"></option>
                         </select>
-                        <label class="form-label mb-3">Customer</label>
-                        <select class="form-select mb-3" th:field="*{customers}">
-                            <option th:each="customer : ${customerList}" th:value="${customer.customerId}" th:text="${customer.customerName}"></option>
+                        <label class="form-label mb-3">Attach Service</label>
+                        <select class="form-select mb-3" th:field="*{attachServices}">
+                            <option th:each="attachService : ${attachServiceList}" th:value="${attachService.attachServiceId}" th:text="${attachService.attachServiceName}"></option>
                         </select>
-                        <label class="form-label mb-3">Service</label>
-                        <select class="form-select mb-3" th:field="*{services}">
-                            <option th:each="service : ${serviceList}" th:value="${service.serviceId}" th:text="${service.serviceName}"></option>
-                        </select>
+                        <label class="form-label mb-3">Quantity</label>
+                        <input class="form-control mb-3" type="text" th:field="*{quantity}">
 
                         <input class="btn btn-success mb-3" type="submit" value="Create">
                     </form>

@@ -1,16 +1,10 @@
-package com.codegym.model;
+package com.codegym.dto;
 
-import org.springframework.validation.annotation.Validated;
+import com.codegym.model.CustomerType;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
-import javax.persistence.*;
-import java.util.List;
-import java.util.Objects;
-
-@Entity
-@Table(name = "customer")
-public class Customer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CustomerDto implements Validator {
     private Long customerId;
     private String customerCode;
     private String customerName;
@@ -20,17 +14,12 @@ public class Customer {
     private String customerPhone;
     private String customerEmail;
     private String customerAddress;
-    @ManyToOne
-    @JoinColumn (name = "customer_type_id", referencedColumnName = "customerTypeId")
     private CustomerType customerTypes;
 
-    @OneToMany (mappedBy = "customers")
-    private List<Contract> contracts;
-
-    public Customer() {
+    public CustomerDto() {
     }
 
-    public Customer(String customerCode, String customerName, String customerBirthday, String customerGender, String customerIdCard, String customerPhone, String customerEmail, String customerAddress, CustomerType customerTypes, List<Contract> contracts) {
+    public CustomerDto(String customerCode, String customerName, String customerBirthday, String customerGender, String customerIdCard, String customerPhone, String customerEmail, String customerAddress, CustomerType customerTypes) {
         this.customerCode = customerCode;
         this.customerName = customerName;
         this.customerBirthday = customerBirthday;
@@ -40,7 +29,6 @@ public class Customer {
         this.customerEmail = customerEmail;
         this.customerAddress = customerAddress;
         this.customerTypes = customerTypes;
-        this.contracts = contracts;
     }
 
     public Long getCustomerId() {
@@ -123,24 +111,37 @@ public class Customer {
         this.customerTypes = customerTypes;
     }
 
-    public List<Contract> getContracts() {
-        return contracts;
-    }
-
-    public void setContracts(List<Contract> contracts) {
-        this.contracts = contracts;
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Customer customer = (Customer) o;
-        return customerId.equals(customer.customerId);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(customerId);
+    public void validate(Object target, Errors errors) {
+        CustomerDto customerDto = (CustomerDto) target;
+        String customerCode = customerDto.customerCode;
+        if (!customerCode.matches("^KH-\\d{4}$")){
+            errors.rejectValue("customerCode", "customerCode.rejected", "Customer Code must be format: KH-XXXX");
+        }
+        String customerName = customerDto.customerName;
+        if (!customerName.matches("^((\\w\\s?){5,44})\\w$")){
+            errors.rejectValue("customerName", "customerName.rejected","Customer Name has length from 5 to 45 characters");
+        }
+        String customerIdCard = customerDto.customerIdCard;
+        if (!customerIdCard.matches("^\\d{9}$")){
+            errors.rejectValue("customerIdCard","customerIdCard.rejected","Customer IdCard must has 9 digits only");
+        }
+        String customerPhone = customerDto.customerPhone;
+        if (!customerPhone.matches("^(090|091|\\(84\\)\\+90|\\(84\\)\\+91)\\d{7}$")){
+            errors.rejectValue("customerPhone","customerPhone.rejected","Customer Phone must be format: [090/091/(84)+90/(84)+91]XXXXXXX");
+        }
+        String customerEmail = customerDto.customerEmail;
+        if (!customerEmail.matches("^((\\w|\\.|\\_){5,45})\\@\\w{5,10}\\.\\w{2,5}$")){
+            errors.rejectValue("customerEmail","customerEmail.rejected","Customer Email must be format: example@domain.com");
+        }
+        String customerAddress = customerDto.customerAddress;
+        if (!customerAddress.matches("^((\\w\\s?){5,254})\\w$")){
+            errors.rejectValue("customerAddress","customerAddress.rejected","Customer Address has length from 5 to 255 characters");
+        }
     }
 }

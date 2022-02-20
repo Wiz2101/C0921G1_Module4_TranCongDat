@@ -36,14 +36,15 @@
     <div class="row">
         <div class="col-lg-3">
             <ul>
-                <li><a href="/customer">All Customer</a></li>
-                <li><a href="/customer/inhouse-guest">Inhouse Customer</a></li>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
             </ul>
         </div>
         <div class="col-lg-9">
             <div class="container">
-                <a class="btn btn-success mb-5" href="/customer/create">Create</a>
-                <form class="input-group mb-3" action="/customer">
+                <a class="btn btn-success mb-5" href="/contractDetail/create">Create</a>
+                <form class="input-group mb-3" action="/contractDetail">
                     <input class="form-control" type="text" name="keyword" placeholder="Enter Name">
                     <input class="btn btn-primary" type="submit" value="Search">
                 </form>
@@ -52,59 +53,58 @@
                 <p style="color: #b60a0a" th:text="${deleteSC}"></p>
                 <table class="table table-hover">
                     <tr>
-                        <th>Customer Code</th>
-                        <th>Name</th>
-                        <th>Gender</th>
-                        <th>Customer Type</th>
-                        <th colspan="3">Action</th>
+                        <th>ID</th>
+                        <th>Contract</th>
+                        <th>Attach Service</th>
+                        <th>Quantity</th>
                     </tr>
-                    <tr th:each="customer : ${customerList}">
-                        <td th:text="${customer.customerCode}"></td>
-                        <td th:text="${customer.customerName}"></td>
-                        <td th:text="${customer.customerGender}"></td>
-                        <td th:text="${customer.customerTypes.customerTypeName}"></td>
-                        <td>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="viewModal btn btn-primary">
-                                View
-                            </button>
-                            <input type="text" th:value="${customer.customerId}" hidden>
+                    <tr th:each="contractDetail : ${contractDetailList}">
+                        <td th:text="${contractDetail.contractDetailId}"></td>
+                        <td th:text="${contractDetail.contracts.contractStartDate}"></td>
+                        <td th:text="${contractDetail.attachServices.attachServiceName}"></td>
+                        <td th:text="${contractDetail.quantity}"></td>
+<!--                        <td>-->
+<!--                            &lt;!&ndash; Button trigger modal &ndash;&gt;-->
+<!--                            <button id="viewModal" type="button" class="btn btn-primary">-->
+<!--                                View-->
+<!--                            </button>-->
+<!--                            <input type="text" th:value="${contractDetail.contractDetailId}" hidden>-->
 
-                        </td>
-                        <td><a class="btn btn-warning" th:href="@{/customer/edit/__${customer.customerId}__}">Update</a></td>
-                        <td><!-- Button trigger modal -->
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" th:data-bs-target="'#DeleteModal' + ${customer.customerId}">
-                                Delete
-                            </button>
-                            <!-- Modal -->
-                            <div class="modal fade" th:id="'DeleteModal' + ${customer.customerId}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>Are you sure to delete <span th:text="${customer.customerName}"> </span> ?</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <a class="btn btn-danger" style="text-decoration: none" th:href="@{/customer/delete/__${customer.customerId}__}">Delete</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
+<!--                        </td>-->
+<!--                        <td><a class="btn btn-warning" th:href="@{/contractDetail/edit/__${contractDetail.contractDetailId}__}">Update</a></td>-->
+<!--                        <td>&lt;!&ndash; Button trigger modal &ndash;&gt;-->
+<!--                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#DeleteModal">-->
+<!--                                Delete-->
+<!--                            </button>-->
+<!--                            &lt;!&ndash; Modal &ndash;&gt;-->
+<!--                            <div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--                                <div class="modal-dialog">-->
+<!--                                    <div class="modal-content">-->
+<!--                                        <div class="modal-header">-->
+<!--                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>-->
+<!--                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--                                        </div>-->
+<!--                                        <div class="modal-body">-->
+<!--                                            <p>Are you sure to delete <span th:text="${contractDetail.contractDetailName}"> </span> ?</p>-->
+<!--                                        </div>-->
+<!--                                        <div class="modal-footer">-->
+<!--                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+<!--                                            <button type="button" class="btn btn-danger"><a style="text-decoration: none" th:href="@{/contractDetail/delete/__${contractDetail.contractDetailId}__}"></a>Delete</button>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </td>-->
                     </tr>
                 </table>
-                <div>
-                    <a th:href="@{'/customer'(page=${customerList.number - 1})}"
-                       th:if="${customerList.hasPrevious()}">Previous</a>
-                    <span th:text="${customerList.number + 1}"></span>/<span
-                        th:text="${customerList.totalPages}"></span>
-                    <a th:href="@{'/customer'(page=${customerList.number + 1})}"
-                       th:if="${customerList.hasNext()}">Next</a>
-                </div>
+<!--                <div>-->
+<!--                    <a th:href="@{'/contractDetail'(page=${contractDetailList.number - 1})}"-->
+<!--                       th:if="${contractDetailList.hasPrevious()}">Previous</a>-->
+<!--                    <span th:text="${contractDetailList.number + 1}"></span>/<span-->
+<!--                        th:text="${contractDetailList.totalPages}"></span>-->
+<!--                    <a th:href="@{'/contractDetail'(page=${contractDetailList.number + 1})}"-->
+<!--                       th:if="${contractDetailList.hasNext()}">Next</a>-->
+<!--                </div>-->
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModalEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -162,10 +162,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
-        $(".viewModal").click(function () {
+        $("#viewModal").click(function () {
             let idEmp = $(this).next().val();
             $.ajax({
-                url: "/customer/view/" + idEmp,
+                url: "/contractDetail/view/" + idEmp,
                 type: "GET",
                 dataType: "HTML",
                 success: function (data) {

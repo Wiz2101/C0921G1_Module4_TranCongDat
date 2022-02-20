@@ -1,5 +1,6 @@
 package com.codegym.controller;
 
+import com.codegym.dto.EmployeeDto;
 import com.codegym.model.Division;
 import com.codegym.model.EducationDegree;
 import com.codegym.model.Employee;
@@ -8,12 +9,15 @@ import com.codegym.service.IDivisionService;
 import com.codegym.service.IEducationDegreeService;
 import com.codegym.service.IEmployeeService;
 import com.codegym.service.IPositionService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -50,7 +54,7 @@ public class EmployeeController {
         List<Position> positionList = positionService.findAll();
         List<EducationDegree> educationDegreeList = educationDegreeService.findAll();
         List<Division> divisionList = divisionService.findAll();
-        model.addAttribute("employee", new Employee());
+        model.addAttribute("employeeDto", new EmployeeDto());
         model.addAttribute("positionList", positionList);
         model.addAttribute("educationDegreeList", educationDegreeList);
         model.addAttribute("divisionList", divisionList);
@@ -58,7 +62,17 @@ public class EmployeeController {
     }
 
     @PostMapping("/create")
-    public String createEmployee(@ModelAttribute Employee employee, RedirectAttributes redirectAttributes) {
+    public String createEmployee(@Validated @ModelAttribute EmployeeDto employeeDto, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
+        new EmployeeDto().validate(employeeDto,bindingResult);
+        if (bindingResult.hasFieldErrors()){
+            model.addAttribute("employeeDto", employeeDto);
+            model.addAttribute("positionList", positionService.findAll());
+            model.addAttribute("educationDegreeList", educationDegreeService.findAll());
+            model.addAttribute("divisionList", divisionService.findAll());
+            return "employee/create";
+        }
+        Employee employee = new Employee();
+        BeanUtils.copyProperties(employeeDto,employee);
         employeeService.save(employee);
         redirectAttributes.addFlashAttribute("createSC", "Create Sucessfully!");
         return "redirect:/employee";
@@ -70,7 +84,9 @@ public class EmployeeController {
         if (!employee.isPresent()) {
             return "error404";
         }
-        model.addAttribute("employee", employee.get());
+        EmployeeDto employeeDto = new EmployeeDto();
+        BeanUtils.copyProperties(employee.get(),employeeDto);
+        model.addAttribute("employeeDto", employeeDto);
         model.addAttribute("positionList", positionService.findAll());
         model.addAttribute("educationDegreeList", educationDegreeService.findAll());
         model.addAttribute("divisionList", divisionService.findAll());
@@ -78,7 +94,17 @@ public class EmployeeController {
     }
 
     @PostMapping("/edit")
-    public String editEmployee(@ModelAttribute Employee employee, RedirectAttributes redirectAttributes) {
+    public String editEmployee(@Validated @ModelAttribute EmployeeDto employeeDto, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
+        new EmployeeDto().validate(employeeDto,bindingResult);
+        if (bindingResult.hasFieldErrors()){
+            model.addAttribute("employeeDto",employeeDto);
+            model.addAttribute("positionList", positionService.findAll());
+            model.addAttribute("educationDegreeList", educationDegreeService.findAll());
+            model.addAttribute("divisionList", divisionService.findAll());
+            return "employee/edit";
+        }
+        Employee employee = new Employee();
+        BeanUtils.copyProperties(employeeDto,employee);
         employeeService.save(employee);
         redirectAttributes.addFlashAttribute("UpdateSC","Update Successfully!");
         return "redirect:/employee";

@@ -8,5 +8,5 @@ import org.springframework.data.domain.Pageable;
 public interface ICustomerService extends IGeneralService<Customer> {
     Page<Customer> findAll(Pageable pageable);
     Page<Customer> findByName(String keyword, Pageable pageable);
-
+    Page<Customer> findAllByDate(String date, Pageable pageable);
 }

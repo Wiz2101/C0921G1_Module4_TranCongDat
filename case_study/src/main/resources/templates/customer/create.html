@@ -44,25 +44,40 @@
         <div class="col-lg-9">
             <div class="container">
                 <div class="row">
-                    <form action="/customer/create" method="post" th:object="${customer}">
+                    <form action="/customer/create" method="post" th:object="${customerDto}">
+                        <label class="form-label mb-3">Customer Code</label>
+                        <input class="form-control mb-3" type="text" th:field="*{customerCode}">
+                        <p th:if="${#fields.hasErrors('customerCode')}" th:errors="*{customerCode}"></p>
                         <label class="form-label mb-3">Customer Type</label>
                         <select class="form-select mb-3" th:field="*{customerTypes}">
                             <option th:each="customerType : ${customerTypeList}" th:value="${customerType.customerTypeId}" th:text="${customerType.customerTypeName}"></option>
                         </select>
                         <label class="form-label mb-3">Name</label>
                         <input class="form-control mb-3" type="text" th:field="*{customerName}">
+                        <p th:if="${#fields.hasErrors('customerName')}" th:errors="*{customerName}"></p>
+
                         <label class="form-label mb-3">Birthday</label>
                         <input class="form-control mb-3" type="date" th:field="*{customerBirthday}">
+
                         <label class="form-label mb-3">Gender</label>
                         <input class="form-control mb-3" type="text" th:field="*{customerGender}">
                         <label class="form-label mb-3">ID Card</label>
                         <input class="form-control mb-3" type="text" th:field="*{customerIdCard}">
+                        <p th:if="${#fields.hasErrors('customerIdCard')}" th:errors="*{customerIdCard}"></p>
+
                         <label class="form-label mb-3">Phone Number</label>
                         <input class="form-control mb-3" type="text" th:field="*{customerPhone}">
+                        <p th:if="${#fields.hasErrors('customerPhone')}" th:errors="*{customerPhone}"></p>
+
                         <label class="form-label mb-3">Email</label>
                         <input class="form-control mb-3" type="text" th:field="*{customerEmail}">
+                        <p th:if="${#fields.hasErrors('customerEmail')}" th:errors="*{customerEmail}"></p>
+
                         <label class="form-label mb-3">Address</label>
                         <input class="form-control mb-3" type="text" th:field="*{customerAddress}">
+                        <p th:if="${#fields.hasErrors('customerAddress')}" th:errors="*{customerAddress}"></p>
+
+
                         <input class="btn btn-success mb-3" type="submit" value="Create">
                     </form>
                 </div>
