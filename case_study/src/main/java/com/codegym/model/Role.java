@@ -12,7 +12,7 @@ public class Role implements Serializable {
     private Long roleId;
     private String roleName;
 
-    @OneToMany(mappedBy = "roles")
+    @OneToMany(mappedBy = "roles", fetch = FetchType.EAGER)
     private List<UserRole> userRoles;
 
     public Role() {

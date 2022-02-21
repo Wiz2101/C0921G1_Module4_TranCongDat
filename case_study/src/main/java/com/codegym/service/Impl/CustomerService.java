@@ -46,6 +46,6 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public Page<Customer> findAllByDate(String date, Pageable pageable) {
-        return customerRepository.findAllBYDate(date, pageable);
+        return customerRepository.findAllByDate(date, pageable);
     }
 }

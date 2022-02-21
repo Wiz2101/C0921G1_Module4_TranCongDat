@@ -45,4 +45,9 @@ public class EmployeeService implements IEmployeeService {
     public Page<Employee> findByName(String keyword, Pageable pageable) {
         return employeeRepository.findEmployeeByEmployeeNameContaining(keyword, pageable);
     }
+
+    @Override
+    public Employee findByUsers_User(String username) {
+        return employeeRepository.findByUsers_User(username);
+    }
 }

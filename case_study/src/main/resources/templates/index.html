@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -16,7 +17,8 @@
             Bootstrap
         </a>
         <div class="username">
-            <p class="m-auto">Nguyen Van A</p>
+            <p class="m-auto">Welcome, <span sec:authentication="principal.empName"></span></p>
+            <a href="/logout">Logout</a>
         </div>
     </div>
 </header>

@@ -152,7 +152,7 @@ public class EmployeeDto implements Validator {
             errors.rejectValue("employeeEmail","employeeEmail.rejected","Employee Email must be format: example@domain.com");
         }
         String employeeAddress = employeeDto.employeeAddress;
-        if (!employeeAddress.matches("^((\\w\\s?){5,254})\\w$")){
+        if (!employeeAddress.matches("^((\\w\\s?){5,254})(\\w|\\.)$")){
             errors.rejectValue("employeeAddress","employeeAddress.rejected","Employee Address has length from 5 to 255 characters");
         }
     }

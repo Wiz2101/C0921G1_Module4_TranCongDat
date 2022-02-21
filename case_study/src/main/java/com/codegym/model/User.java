@@ -14,7 +14,7 @@ public class User implements Serializable {
     @OneToOne (mappedBy = "users")
     private Employee employee;
 
-    @OneToMany (mappedBy = "users")
+    @OneToMany (mappedBy = "users", fetch = FetchType.EAGER)
     private List<UserRole> userRoles;
 
     public User() {
