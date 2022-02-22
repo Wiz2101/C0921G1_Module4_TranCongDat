@@ -4,16 +4,27 @@ import com.codegym.model.CustomerType;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+import javax.validation.constraints.NotBlank;
+
 public class CustomerDto implements Validator {
     private Long customerId;
+    @NotBlank
     private String customerCode;
+    @NotBlank
     private String customerName;
+    @NotBlank
     private String customerBirthday;
+    @NotBlank
     private String customerGender;
+    @NotBlank
     private String customerIdCard;
+    @NotBlank
     private String customerPhone;
+    @NotBlank
     private String customerEmail;
+    @NotBlank
     private String customerAddress;
+    @NotBlank
     private CustomerType customerTypes;
 
     public CustomerDto() {

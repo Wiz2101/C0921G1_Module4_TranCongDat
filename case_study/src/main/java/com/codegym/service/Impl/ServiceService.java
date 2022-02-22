@@ -31,4 +31,9 @@ public class ServiceService implements IServiceService {
     public Optional<Service> findById(Long id) {
         return serviceRepository.findById(id);
     }
+
+    @Override
+    public List<Service> searchByNameAndSelect(String serviceName, String standardRoom, String rentType, String serviceType) {
+        return serviceRepository.searchByNameAndSelect(serviceName, standardRoom, rentType, serviceType);
+    }
 }

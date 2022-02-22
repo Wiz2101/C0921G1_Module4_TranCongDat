@@ -8,58 +8,59 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-<header class="navbar navbar-light bg-light d-flex justify-content-between flex-nowrap">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="https://www.woodst.com/wp-content/uploads/2018/08/code-branding-01-2.jpg" alt="" width="50"
-                 height="auto" class="d-inline-block align-text-top">
-            Bootstrap
-        </a>
-        <div class="username">
-            <p class="m-auto">Nguyen Van A</p>
-        </div>
-    </div>
+<header th:replace="~{/fragment/layout::header}">
 </header>
-<nav class="d-flex justify-content-center py-3">
-    <ul class="nav nav-pills">
-        <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Home</a></li>
-        <li class="nav-item"><a href="/employee" class="nav-link">Employee</a></li>
-        <li class="nav-item"><a href="/customer" class="nav-link">Customer</a></li>
-        <li class="nav-item"><a href="/service" class="nav-link">Service</a></li>
-        <li class="nav-item"><a href="/contract" class="nav-link">Contract</a></li>
-    </ul>
-    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <input type="search" class="form-control mb-3" placeholder="Search..." aria-label="Search">
-    </form>
+<nav th:replace="~{/fragment/layout::navbar}">
 </nav>
 <div class="container-fluid">
-    <div class="row">
+    <div class="row mt-5">
         <div class="col-lg-3">
-            <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
+            <ul style="list-style-type: none">
+                <li><a class="btn btn-success mb-5" href="/employee/create">Create Employee</a></li>
             </ul>
+            <form class="input-group mb-3 flex-column" action="/employee">
+                <div>
+                    <label class="form-label">Name</label>
+                    <input class="form-control" type="text" name="keyword" placeholder="Enter Name">
+                </div>
+                <div>
+                    <label class="form-label">Position</label>
+                    <select class="form-select" name="positionId">
+                        <option selected disabled>--Choose Option--</option>
+                        <option th:each="position : ${positionList}" th:value="${position.positionId}"
+                                th:text="${position.positionName}"></option>
+                    </select>
+                    <label class="form-label">Education Degree</label>
+                    <select class="form-select " name="educationDegreeId">
+                        <option selected disabled>--Choose Option--</option>
+                        <option th:each="educationDegree : ${educationDegreeList}"
+                                th:value="${educationDegree.educationDegreeId}"
+                                th:text="${educationDegree.educationDegreeName}"></option>
+                    </select>
+                    <label class="form-label">Division</label>
+                    <select class="form-select" name="divisionId">
+                        <option selected disabled>--Choose Option--</option>
+                        <option th:each="divison : ${divisionList}" th:value="${divison.divisionId}"
+                                th:text="${divison.divisionName}"></option>
+                    </select>
+                </div>
+                <input class="btn btn-primary mt-3" type="submit" value="Search">
+            </form>
         </div>
         <div class="col-lg-9">
             <div class="container">
-                <a class="btn btn-success mb-5" href="/employee/create">Create</a>
-                <form class="input-group mb-3" action="/employee">
-                    <input class="form-control" type="text" name="keyword" placeholder="Enter Name">
-                    <input class="btn btn-primary" type="submit" value="Search">
-                </form>
                 <p style="color: #298635" th:text="${createSC}"></p>
                 <p style="color: #aa871c" th:text="${UpdateSC}"></p>
                 <p style="color: #b60a0a" th:text="${deleteSC}"></p>
                 <table class="table table-hover">
-                    <tr>
+                    <tr style="background-color: #3f6c6a; color: white">
                         <th>ID</th>
                         <th>Name</th>
                         <th>Phone</th>
                         <th>Email</th>
                         <th>Address</th>
                         <th>Position</th>
-                        <th colspan="3">Action</th>
+                        <th style="text-align: center" colspan="3">Action</th>
                     </tr>
                     <tr th:each="employee : ${employeeList}">
                         <td th:text="${employee.employeeId}"></td>
@@ -76,25 +77,33 @@
                             <input type="text" th:value="${employee.employeeId}" hidden>
 
                         </td>
-                        <td><a class="btn btn-warning" th:href="@{/employee/edit/__${employee.employeeId}__}">Update</a></td>
+                        <td><a class="btn btn-warning" th:href="@{/employee/edit/__${employee.employeeId}__}">Update</a>
+                        </td>
                         <td><!-- Button trigger modal -->
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" th:data-bs-target="'#DeleteModal' + ${employee.employeeId}" >
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    th:data-bs-target="'#DeleteModal' + ${employee.employeeId}">
                                 Delete
                             </button>
                             <!-- Modal -->
-                            <div class="modal fade" th:id="'DeleteModal' + ${employee.employeeId}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" th:id="'DeleteModal' + ${employee.employeeId}" tabindex="-1"
+                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <p>Are you sure to delete <span th:text="${employee.employeeName}"> </span> ?</p>
+                                            <p>Are you sure to delete <span th:text="${employee.employeeName}"> </span>
+                                                ?</p>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <a class="btn btn-danger" style="text-decoration: none" th:href="@{/employee/delete/__${employee.employeeId}__}">Delete</a>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                Close
+                                            </button>
+                                            <a class="btn btn-danger" style="text-decoration: none"
+                                               th:href="@{/employee/delete/__${employee.employeeId}__}">Delete</a>
                                         </div>
                                     </div>
                                 </div>
@@ -111,12 +120,14 @@
                        th:if="${employeeList.hasNext()}">Next</a>
                 </div>
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModalEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="exampleModalEmployee" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                             </div>
                             <div id="modalEmployee" class="modal-body">
                                 ...

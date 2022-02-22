@@ -5,16 +5,28 @@ import com.codegym.model.ServiceType;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class ServiceDto implements Validator {
     private Long serviceId;
+    @NotBlank
     private String serviceCode;
+    @NotBlank
     private String serviceName;
+    @NotNull
     private Integer serviceArea;
+    @NotNull
     private Long serviceCost;
+    @NotNull
     private Integer serviceMaxPeople;
+    @NotBlank
     private String standardRoom;
+    @NotBlank
     private String descriptionOtherConvenience;
+    @NotNull
     private Double poolArea;
+    @NotNull
     private Integer numberOfFloors;
     private RentType rentTypes;
     private ServiceType serviceTypes;

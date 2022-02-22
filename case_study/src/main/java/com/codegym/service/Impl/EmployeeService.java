@@ -50,4 +50,9 @@ public class EmployeeService implements IEmployeeService {
     public Employee findByUsers_User(String username) {
         return employeeRepository.findByUsers_User(username);
     }
+
+    @Override
+    public Page<Employee> searchByNameAndSelect(String keyword, String position, String educationDegree, String division, Pageable pageable) {
+        return employeeRepository.searchByNameAndSelect(keyword, position, educationDegree, division, pageable);
+    }
 }

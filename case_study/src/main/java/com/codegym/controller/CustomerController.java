@@ -16,8 +16,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Controller
 @RequestMapping("/customer")
@@ -29,21 +28,19 @@ public class CustomerController {
     private ICustomerTypeService customerTypeService;
 
     @GetMapping
-    public String findAll(@RequestParam Optional<String> keyword, Model model, @PageableDefault(value = 5) Pageable pageable) {
-        Page<Customer> customerList;
-        if (!keyword.isPresent()) {
-            customerList = customerService.findAll(pageable);
-        } else {
-            customerList = customerService.findByName(keyword.get(),pageable);
-        }
+    public String findAll(@RequestParam(defaultValue = "") String keyword, @RequestParam(defaultValue = "") String customerTypeId, Model model, @PageableDefault(value = 5) Pageable pageable) {
+        Page<Customer> customerList = customerService.findAll(pageable);
         model.addAttribute("customerList", customerList);
+        model.addAttribute("customerTypeList", customerTypeService.findAll());
+        Page<Customer> customers = customerService.searchByNameAndSelect("%" + keyword + "%","%" + customerTypeId + "%", pageable);
+        model.addAttribute("customerList",customers);
         return "/customer/list";
     }
 
     @GetMapping("/create")
-    public String showCreate(Model model, Pageable pageable) {
+    public String showCreate(Model model) {
         List<CustomerType> customerTypeList = customerTypeService.findAll();
-        model.addAttribute("customer", new CustomerDto());
+        model.addAttribute("customerDto", new CustomerDto());
         model.addAttribute("customerTypeList", customerTypeList);
         return "customer/create";
     }

@@ -16,4 +16,6 @@ public interface ICustomerRepository extends JpaRepository<Customer,Long> {
             "LEFT JOIN attach_service ON attach_service.attach_service_id = contract_detail.attach_service_id\n" +
             "WHERE contract_start_date REGEXP :date\n",nativeQuery = true)
     Page<Customer> findAllByDate(@Param("date") String date, Pageable pageable);
+    @Query(value="SELECT * FROM customer WHERE customer_name LIKE :name AND customer_type_id LIKE :customerType",nativeQuery = true)
+    Page<Customer> searchByNameAndSelect(@Param("name") String name, @Param("customerType") String customerTypeId, Pageable pageable);
 }

@@ -9,4 +9,5 @@ public interface ICustomerService extends IGeneralService<Customer> {
     Page<Customer> findAll(Pageable pageable);
     Page<Customer> findByName(String keyword, Pageable pageable);
     Page<Customer> findAllByDate(String date, Pageable pageable);
+    Page<Customer> searchByNameAndSelect(String keyword,String customerType,Pageable pageable);
 }

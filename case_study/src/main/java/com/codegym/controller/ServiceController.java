@@ -29,9 +29,14 @@ public class ServiceController {
     IServiceTypeService serviceTypeService;
 
     @GetMapping
-    public String findAll(Model model){
+    public String findAll(@RequestParam(defaultValue = "", value = "keyword") String keyword1, @RequestParam(defaultValue = "", value = "keyword") String keyword2,
+                          @RequestParam(defaultValue = "") String rentTypeId,
+                          @RequestParam(defaultValue = "") String serviceTypeId, Model model){
         List<Service> serviceList = serviceService.findAll();
         model.addAttribute("serviceList",serviceList);
+        model.addAttribute("serviceTypeList",serviceTypeService.findAll());
+        model.addAttribute("rentTypeList",rentTypeService.findAll());
+        List<Service> services = serviceService.searchByNameAndSelect("%" + keyword1 + "%","%" + keyword2 + "%","%" + rentTypeId + "%","%" + serviceTypeId + "%");
         return "service/list";
     }
 

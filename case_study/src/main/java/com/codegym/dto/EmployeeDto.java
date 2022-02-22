@@ -3,26 +3,46 @@ package com.codegym.dto;
 import com.codegym.model.Division;
 import com.codegym.model.EducationDegree;
 import com.codegym.model.Position;
+import com.codegym.model.User;
+import com.codegym.repository.IUserRepository;
+import com.codegym.service.IUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
 public class EmployeeDto implements Validator {
     private Long employeeId;
+    @NotBlank
     private String employeeName;
+    @NotBlank
     private String employeeBirthday;
+    @NotBlank
     private String employeeIdCard;
+    @NotNull
     private Long employeeSalary;
+    @NotBlank
     private String employeePhone;
+    @NotBlank
     private String employeeEmail;
+    @NotBlank
     private String employeeAddress;
+
     private Position positions;
     private EducationDegree educationDegrees;
     private Division divisions;
+    @NotBlank
+    private String username;
 
     public EmployeeDto() {
     }
 
-    public EmployeeDto(String employeeName, String employeeBirthday, String employeeIdCard, Long employeeSalary, String employeePhone, String employeeEmail, String employeeAddress, Position positions, EducationDegree educationDegrees, Division divisions) {
+    public EmployeeDto(String employeeName, String employeeBirthday, String employeeIdCard, Long employeeSalary, String employeePhone, String employeeEmail, String employeeAddress, Position positions, EducationDegree educationDegrees, Division divisions, String username) {
         this.employeeName = employeeName;
         this.employeeBirthday = employeeBirthday;
         this.employeeIdCard = employeeIdCard;
@@ -33,6 +53,7 @@ public class EmployeeDto implements Validator {
         this.positions = positions;
         this.educationDegrees = educationDegrees;
         this.divisions = divisions;
+        this.username = username;
     }
 
     public Long getEmployeeId() {
@@ -123,6 +144,14 @@ public class EmployeeDto implements Validator {
         this.divisions = divisions;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     @Override
     public boolean supports(Class<?> clazz) {
         return false;
@@ -155,5 +184,6 @@ public class EmployeeDto implements Validator {
         if (!employeeAddress.matches("^((\\w\\s?){5,254})(\\w|\\.)$")){
             errors.rejectValue("employeeAddress","employeeAddress.rejected","Employee Address has length from 5 to 255 characters");
         }
+
     }
 }

@@ -8,37 +8,15 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-<header class="navbar navbar-light bg-light d-flex justify-content-between flex-nowrap">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="https://www.woodst.com/wp-content/uploads/2018/08/code-branding-01-2.jpg" alt="" width="50"
-                 height="auto" class="d-inline-block align-text-top">
-            Bootstrap
-        </a>
-        <div class="username">
-            <p class="m-auto">Nguyen Van A</p>
-        </div>
-    </div>
+<header th:replace="~{/fragment/layout::header}">
 </header>
-<nav class="d-flex justify-content-center py-3">
-    <ul class="nav nav-pills">
-        <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Home</a></li>
-        <li class="nav-item"><a href="/employee" class="nav-link">Employee</a></li>
-        <li class="nav-item"><a href="/customer" class="nav-link">Customer</a></li>
-        <li class="nav-item"><a href="/service" class="nav-link">Service</a></li>
-        <li class="nav-item"><a href="/contract" class="nav-link">Contract</a></li>
-    </ul>
-    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <input type="search" class="form-control mb-3" placeholder="Search..." aria-label="Search">
-    </form>
+<nav th:replace="~{/fragment/layout::navbar}">
 </nav>
 <div class="container-fluid">
-    <div class="row">
+    <div class="row mt-5">
         <div class="col-lg-3">
-            <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
+            <ul style="list-style-type: none">
+                <li><a class="btn btn-success mb-5" href="/service">Back To List</a></li>
             </ul>
         </div>
         <div class="col-lg-9">
